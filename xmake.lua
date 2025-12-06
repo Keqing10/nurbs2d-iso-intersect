@@ -1,0 +1,32 @@
+add_rules("mode.debug", "mode.release")
+add_rules("plugin.compile_commands.autoupdate", {outputdir = ".vscode"})
+add_requires("catch2", "glm 0.9.9")
+
+set_languages("c++20")
+
+target("tests")
+    set_kind("binary")
+    add_files("tests/test_*.cpp")
+    remove_files("tests/test_iso_intersection_visual.cpp") 
+    add_packages("catch2")
+    add_packages("glm")
+    add_includedirs("third_party/tinynurbs/include")
+    add_includedirs("include")
+
+target("benchmark")
+    set_kind("binary")
+    add_files("tests/benchmark_*.cpp")
+    add_packages("catch2")
+    add_packages("glm")
+    add_includedirs("third_party/tinynurbs/include")
+    add_includedirs("include")
+    set_optimize("fastest") 
+
+target("test_visual")
+    set_kind("binary")
+    add_files("tests/test_iso_intersection_visual.cpp")
+    add_packages("glm")
+    add_includedirs("third_party/tinynurbs/include")
+    add_includedirs("third_party/sciplot")
+    add_includedirs("include")
+
