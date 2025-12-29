@@ -1,0 +1,7 @@
+[submodule "tinynurbs"]
+    path = third_party/tinynurbs
+    url = git@github.com:pradeep-pyro/tinynurbs.git
+
+[submodule "sciplot"]
+    path = third_party/sciplot
+    url = git@github.com:sciplot/sciplot.git
